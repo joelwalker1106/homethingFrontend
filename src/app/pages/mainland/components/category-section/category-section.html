@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">熱門分類</h2>
+    <ul class="grid">
+      @for (category of categories; track category.name) {
+        <li>
+          <button type="button" class="item">
+            <span class="thumb">
+              <img [src]="category.image" [alt]="category.name" />
+            </span>
+            <span class="name">{{ category.name }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

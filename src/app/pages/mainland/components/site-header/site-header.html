@@ -1,0 +1,84 @@
+<header class="header">
+  <div class="header__top">
+    <div class="container header__top-inner">
+      <div class="lang">
+        <button
+          type="button"
+          class="lang__btn"
+          [class.is-active]="lang() === 'zh'"
+          (click)="lang.set('zh')"
+        >
+          繁中
+        </button>
+        <span class="lang__div">|</span>
+        <button
+          type="button"
+          class="lang__btn"
+          [class.is-active]="lang() === 'en'"
+          (click)="lang.set('en')"
+        >
+          EN
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container header__bar">
+    <a class="logo" routerLink="/" aria-label="弘新醫療器材">
+      <img src="/images/homethingLogoBold.png" alt="弘新醫療器材" />
+    </a>
+
+    <nav class="nav" [class.is-open]="menuOpen()">
+      @for (link of links; track link.label) {
+        @if (link.href === '/') {
+          <a routerLink="/" class="is-active" (click)="menuOpen.set(false)">{{ link.label }}</a>
+        } @else {
+          <a href="#" (click)="prevent($event)">{{ link.label }}</a>
+        }
+      }
+    </nav>
+
+    <div class="utils">
+      <button type="button" class="icon-btn" aria-label="會員">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8" />
+          <path
+            d="M5 19c1.5-3.2 4-4.8 7-4.8S17.5 15.8 19 19"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <button type="button" class="icon-btn" aria-label="購物車">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 7h14l-1.2 10.5H6.2L5 7Z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+          <path d="M9 10V6.5a3 3 0 0 1 6 0V10" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span class="badge">3</span>
+      </button>
+      <button type="button" class="icon-btn" aria-label="搜尋">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.8" />
+          <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="menu-btn"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="選單"
+        (click)="menuOpen.set(!menuOpen())"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

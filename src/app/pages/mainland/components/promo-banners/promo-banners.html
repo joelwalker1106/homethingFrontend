@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container grid">
+    @for (promo of promos; track promo.id) {
+      <article class="banner" [class]="'banner--' + promo.tone">
+        <div class="copy">
+          <p>{{ promo.eyebrow }}</p>
+          <h3>{{ promo.title }}</h3>
+          <button type="button" class="btn" [class.btn--light]="promo.tone === 'sale'" [class.btn--primary]="promo.tone === 'member'">
+            {{ promo.cta }}
+          </button>
+        </div>
+        <img [src]="promo.image" alt="" />
+      </article>
+    }
+  </div>
+</section>

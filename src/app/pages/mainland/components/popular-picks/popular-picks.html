@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">人氣精選</h2>
+    <div class="tabs" role="tablist">
+      @for (tab of tabs; track tab.id) {
+        <button
+          type="button"
+          role="tab"
+          [class.is-active]="selected() === tab.id"
+          [attr.aria-selected]="selected() === tab.id"
+          (click)="selected.set(tab.id)"
+        >
+          {{ tab.label }}
+        </button>
+      }
+    </div>
+    <div class="grid">
+      @for (product of products(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+    <div class="more">
+      <button type="button" class="btn btn--ghost">瀏覽更多商品 →</button>
+    </div>
+  </div>
+</section>

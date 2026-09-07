@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  padding: 12px 0 36px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.banner {
+  position: relative;
+  min-height: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+.banner--sale {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.banner--member {
+  background: var(--blue-soft);
+  color: var(--ink);
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  padding: 28px 12px 28px 32px;
+}
+
+.copy p {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.copy h3 {
+  margin: 8px 0 18px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.banner img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 80% center;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.banner--sale::after {
+  background: linear-gradient(
+    90deg,
+    rgb(249, 98, 50) 46%,
+    rgba(249, 98, 50, 0.35) 72%,
+    transparent 88%
+  );
+}
+
+.banner--member::after {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 236, 228) 48%,
+    rgba(255, 236, 228, 0.2) 75%,
+    transparent 90%
+  );
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

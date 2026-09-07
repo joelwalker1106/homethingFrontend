@@ -1,0 +1,9 @@
+<article class="card">
+  <img [src]="item().image" [alt]="item().title" />
+  <div class="body">
+    <time>{{ item().date }}</time>
+    <h3>{{ item().title }}</h3>
+    <p>{{ item().excerpt }}</p>
+    <button type="button" class="more">閱讀更多 →</button>
+  </div>
+</article>

@@ -1,0 +1,55 @@
+<section class="bar">
+  <div class="container">
+    <ul class="list">
+      @for (item of features; track item.title) {
+        <li>
+          <span class="icon" [attr.data-icon]="item.icon" aria-hidden="true">
+            @switch (item.icon) {
+              @case ('shield') {
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3.5 5 6.2v5.4c0 4.2 2.8 7.7 7 8.9 4.2-1.2 7-4.7 7-8.9V6.2L12 3.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                </svg>
+              }
+              @case ('truck') {
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M3 7h11v9H3V7Z" stroke="currentColor" stroke-width="1.7" />
+                  <path d="M14 10h4l3 3.5V16h-7v-6Z" stroke="currentColor" stroke-width="1.7" />
+                  <circle cx="7" cy="17.5" r="1.5" fill="currentColor" />
+                  <circle cx="17" cy="17.5" r="1.5" fill="currentColor" />
+                </svg>
+              }
+              @case ('card') {
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="3.5" y="6" width="17" height="12" rx="2" stroke="currentColor" stroke-width="1.7" />
+                  <path d="M3.5 10h17" stroke="currentColor" stroke-width="1.7" />
+                </svg>
+              }
+              @case ('headset') {
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 13V11a7 7 0 0 1 14 0v2"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                  <rect x="3.5" y="12" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" />
+                  <rect x="16.5" y="12" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" />
+                </svg>
+              }
+            }
+          </span>
+          <span>
+            <strong>{{ item.title }}</strong>
+            <small>{{ item.description }}</small>
+          </span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

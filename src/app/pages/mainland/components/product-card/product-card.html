@@ -1,0 +1,43 @@
+<article class="card">
+  <div class="card__media">
+    @if (product().badge === 'hot') {
+      <span class="tag tag--hot">Hot</span>
+    }
+    @if (product().badge === 'new') {
+      <span class="tag tag--new">New</span>
+    }
+    <img [src]="product().image" [alt]="product().name" />
+  </div>
+  <div class="card__body">
+    <h3>{{ product().name }}</h3>
+    <div class="price">
+      <strong>{{ money(product().price) }}</strong>
+      @if (product().originalPrice; as original) {
+        <s>{{ money(original) }}</s>
+      }
+    </div>
+    <div class="rating">
+      <span class="stars" aria-hidden="true">
+        @for (star of stars; track star) {
+          <svg viewBox="0 0 20 20" [class.is-on]="isStarOn(star)">
+            <path
+              d="M10 2.5 12.3 7l5 .7-3.6 3.5.9 5L10 14.2 5.4 16.2l.9-5L2.7 7.7l5-.7L10 2.5Z"
+            />
+          </svg>
+        }
+      </span>
+      <span>{{ product().rating }} ({{ product().reviewCount }})</span>
+    </div>
+  </div>
+  <button type="button" class="cart" aria-label="加入購物車">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M6 8h12l-1 11H7L6 8Z"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linejoin="round"
+      />
+      <path d="M9 8V7a3 3 0 0 1 6 0v1" stroke="currentColor" stroke-width="1.8" />
+    </svg>
+  </button>
+</article>

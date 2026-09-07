@@ -1,0 +1,27 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1>
+        居家醫療輔具
+        <br />
+        照顧更安心的每一天
+      </h1>
+      <p>嚴選輪椅、電動床、血壓計與呼吸治療設備，由弘新醫療器材為您把關品質。</p>
+      <button type="button" class="btn btn--primary">立即購物 →</button>
+      <div class="dots" role="tablist" aria-label="主視覺輪播">
+        @for (dot of dots; track dot) {
+          <button
+            type="button"
+            class="dots__item"
+            [class.is-active]="slide() === dot"
+            [attr.aria-label]="'第 ' + (dot + 1) + ' 則'"
+            (click)="slide.set(dot)"
+          ></button>
+        }
+      </div>
+    </div>
+    <div class="hero__visual">
+      <img src="/images/hero-store.jpg" alt="弘新醫療器材門市" />
+    </div>
+  </div>
+</section>

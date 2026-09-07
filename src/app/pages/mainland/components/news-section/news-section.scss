@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  padding: 12px 0 56px;
+}
+
+.section-more {
+  border: 0;
+  background: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

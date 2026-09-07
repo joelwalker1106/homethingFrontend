@@ -1,0 +1,48 @@
+<footer class="footer">
+  <div class="container footer__top">
+    <div class="brand">
+      <a class="logo" routerLink="/" aria-label="弘新醫療器材">
+        <img src="/images/homethingLogoBold.png" alt="弘新醫療器材" />
+      </a>
+      <p>專業醫療器材，為您把關每一份安心。</p>
+      <div class="social">
+        <span>FB</span>
+        <span>IG</span>
+        <span>LINE</span>
+        <span>YT</span>
+      </div>
+    </div>
+
+    @for (column of columns; track column.title) {
+      <div>
+        <h3>{{ column.title }}</h3>
+        <ul>
+          @for (link of column.links; track link) {
+            <li><button type="button">{{ link }}</button></li>
+          }
+        </ul>
+      </div>
+    }
+
+    <div>
+      <h3>聯絡我們</h3>
+      <p>客服專線 0800-123-456</p>
+      <p>服務時間 09:00 - 18:00</p>
+      <p>service@hongxin-med.com</p>
+      <div class="pays">
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>JCB</span>
+        <span>LINE Pay</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {{ year }} 弘新醫療器材. All rights reserved.</p>
+    <div class="legal">
+      <button type="button">隱私權政策</button>
+      <button type="button">服務條款</button>
+    </div>
+  </div>
+</footer>
